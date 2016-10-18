@@ -14682,6 +14682,7 @@ IiIieliKtYiIiIgelmItIiIioof9PyTzxwPAOm/jAAAAAElFTkSuQmCC
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p><strong>Answer: </strong> A $k$-fold cross validation will create $k$ sized samples without replacement and train a model on the sample and measure the performance on left out data. It will do this $k$ times. At each iteration the method selects one sample and combines the remaining $k-1$ samples to create the training data. It will fit the model on that training data and measure the performance on the left out data. It will repeat this on all the samples. The final error of a model is measured as the average error on all the left out training sets.</p>
+<p>The benefit of using this in combination with the grid search is that it will permit grid search to find a more optimal solution. If one were to use grid search on itself without $k$ fold cross validation grid search would likely overfit the model on the data which in turn would lead to poor results on the test data set.</p>
 
 </div>
 </div>
@@ -14716,7 +14717,7 @@ IiIieliKtYiIiIgelmItIiIioof9PyTzxwPAOm/jAAAAAElFTkSuQmCC
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[56]:</div>
+<div class="prompt input_prompt">In&nbsp;[60]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython2"><pre><span></span><span class="c1"># TODO: Import &#39;make_scorer&#39;, &#39;DecisionTreeRegressor&#39;, and &#39;GridSearchCV&#39;</span>
@@ -14814,7 +14815,7 @@ IiIieliKtYiIiIgelmItIiIioof9PyTzxwPAOm/jAAAAAElFTkSuQmCC
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p><strong>Answer: </strong> By applying the grid search with $k$ fold cross validation we find that the optimal <em>max_depth</em> is four and not six as we had observed in Question 6. This was to be expected since a tree of depth six would be a very deep tree which will likely have a high variance.</p>
+<p><strong>Answer: </strong> By applying the grid search with $k$ fold cross validation we find that the optimal <em>max_depth</em> is four, which aligns with our observation in Question 6.</p>
 
 </div>
 </div>
@@ -14863,7 +14864,7 @@ IiIieliKtYiIiIgelmItIiIioof9PyTzxwPAOm/jAAAAAElFTkSuQmCC
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[58]:</div>
+<div class="prompt input_prompt">In&nbsp;[61]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython2"><pre><span></span><span class="c1"># Produce a matrix for client data</span>
@@ -14906,6 +14907,7 @@ Predicted selling price for Client 3&#39;s home: $942,666.67
 <p>Predicted selling price for Client 1's home: \$391,183.33</p>
 <p>Predicted selling price for Client 2's home: \$189,123.53</p>
 <p>Predicted selling price for Client 3's home: \$942,666.67</p>
+<p>We see that the house in the poorest neighborhood and highest student-teacher ratio has the lowest price. This aligns with our hypothesis that we had put forward in Question 1. The last house, with 8 rooms, least poverty and low student to teacher ratio has the highest price. This again aligns with the hypothesis put forward in Question 1.</p>
 
 </div>
 </div>
